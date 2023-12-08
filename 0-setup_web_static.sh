@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# sets up your web servers for the deployment of web_static
+# Some comment
 
-sudo apt-get update
-sudo apt-get install -y
+apt-get update
+apt-get install nginx -y
 
 root_dir="/data/web_static"
+
 mkdir -p "$root_dir/releases/test"
 mkdir -p "$root_dir/shared"
 
@@ -16,14 +17,15 @@ fake_html="<html>
   </body>
 </html>"
 
-echo "$fake_html" | tee "$root_dir/releases/test/index.html" >/dev/null
+echo "$fake_html" | tee "$root_dir/releases/test/index.html" > /dev/null
 
-rm -r "$root_dir/current"
+rm -r  "$root_dir/current"
 ln -sf "$root_dir/releases/test" "$root_dir/current"
 
-chown -Rh "ubuntu:ubuntu" "/data/"
+chown -Rh "siaw:siaw" "/data/"
 
-nginx_cfg="/etc/nginx/sites-available/default"
-sed -i "/server_name _;/a\\         location /hbnb_static/ {alias $root_dir/current/;}" "$nginx_cfg" > /dev/null
+nginx_loc="/etc/nginx/sites-available/default"
 
-sudo service nginx restart
+sed -i "/server_name _;/a\\        location /hbnb_static/ {alias $root_dir/current/;}" "$nginx_loc" > /dev/null
+
+service nginx restart
