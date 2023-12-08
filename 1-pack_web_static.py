@@ -11,7 +11,7 @@ def do_pack():
         time_stamp = time.now().strftime("%Y%m%d%H%M%S")
         saved_path = "versions/web_static_{}.tgz".format(
             time_stamp
-        )        
+        )
         local("mkdir -p versions")
         local("tar -cvzf {} web_static".format(
             saved_path

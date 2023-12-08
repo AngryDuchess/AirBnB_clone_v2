@@ -22,7 +22,7 @@ echo "$fake_html" | tee "$root_dir/releases/test/index.html" > /dev/null
 rm -r  "$root_dir/current"
 ln -sf "$root_dir/releases/test" "$root_dir/current"
 
-chown -Rh "siaw:siaw" "/data/"
+chown -Rh "ubuntu:ubuntu" "/data/"
 
 nginx_loc="/etc/nginx/sites-available/default"
 
