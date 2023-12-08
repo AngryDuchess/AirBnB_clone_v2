@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" """
+""" a function"""
 
 from fabric.api import local, run, env, put
 from datetime import datetime as time
@@ -10,7 +10,7 @@ env.hosts = ["ubuntu@154.161.255.250", "ubuntu@54.236.33.119"]
 
 
 def do_pack():
-    """ """
+    """do pack function """
     try:
         time_stamp = time.now().strftime("%Y%m%d%H%M%S")
         saved_path = "versions/web_static_{}.tgz".format(
@@ -27,7 +27,7 @@ def do_pack():
 
 
 def do_deploy(archive_path):
-    """ """
+    """ do deploy function"""
     try:
         if not path.exists(archive_path):
             return False
