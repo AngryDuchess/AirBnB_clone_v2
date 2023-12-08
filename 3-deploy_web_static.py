@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ a function"""
 
-from fabric.api import local, run, env, put
+from fabric.api import local, run, env, put, runs_once
 from datetime import datetime as time
 from os import path
 
@@ -9,6 +9,7 @@ from os import path
 env.hosts = ["ubuntu@54.161.255.250", "ubuntu@54.236.33.119"]
 
 
+@runs_once
 def do_pack():
     """do pack function """
     try:
@@ -76,3 +77,12 @@ def do_deploy(archive_path):
 
     except Exception:
         return False
+
+def deploy():
+    """deploy function"""
+    archive_path = do_pack()
+
+    if not archive_path:
+        return False
+    
+    return do_deploy(archive_path)
