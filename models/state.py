@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """ State Module for HBNB project """
 import models
-
 from models.base_model import BaseModel, Base
-
 import os
 
 db = os.getenv("HBNB_TYPE_STORAGE")
@@ -25,6 +23,7 @@ class State(*(BaseModel, Base) if is_db else (BaseModel,)):
     else:
         name = ""
 
+        @property
         def cities(self):
             """
             Implements the correct getting requirement for both
