@@ -24,9 +24,8 @@ def display(text):
     display “C ” followed by
     the value of the text variable
     """
-    if "_" in text:
-        text = text.replace("_", " ")
-    return "C {}".format(text)
+    return "C {}".format(text.replace("_", " ") if "_" in text else text)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
