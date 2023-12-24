@@ -4,3 +4,6 @@
 *.swp
 *.json
 unimportants
+meeda
+venv
+__pycache__
