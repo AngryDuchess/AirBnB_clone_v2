@@ -87,3 +87,7 @@ class DBStorage:
         """
         Base.metadata.create_all(self.__engine)
         self.__session = scoped_session(self.__Session)()
+
+    def close(self):
+        """deserializing the JSON file to objects"""
+        self.__session.close()
