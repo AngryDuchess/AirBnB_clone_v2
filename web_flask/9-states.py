@@ -18,7 +18,7 @@ def close_db(exception):
 def states():
     """renders an html odd or even template"""
     list_states = storage.all(State).values()
-    return render_template('8-cities_by_States.html', states=list_states)
+    return render_template('7-states_list.html', states=list_states)
 
 
 @app.route('/states/<id>', strict_slashes=False)
