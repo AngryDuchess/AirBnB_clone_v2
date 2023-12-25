@@ -31,9 +31,5 @@ class State(*(BaseModel, Base) if is_db else (BaseModel,)):
             Implements the correct getting requirement for both
             FIleStorage
             """
-            city_list = []
             objects = storage.all(City).values()
-            for obj in objects:
-                if obj.id == self.id:
-                    city_list.append(id)
-            return city_list
+            return list(filter(lambda city: city.state_id == self.id, objects))

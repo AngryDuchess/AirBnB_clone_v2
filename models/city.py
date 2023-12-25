@@ -3,8 +3,8 @@
 from models.base_model import (Base,
                                Column, String, Integer,
                                relationship, ForeignKey)
-
-from models.state import BaseModel
+from models.base_model import BaseModel
+# from models.state import BaseModel
 
 
 import os
