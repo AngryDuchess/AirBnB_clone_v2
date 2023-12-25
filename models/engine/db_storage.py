@@ -3,7 +3,7 @@
 A module containing Database storage class for AirBnB console
 """
 import os
-from sqlalchemy import create_engine, MetaData
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models.city import City
 from models.user import User

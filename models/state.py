@@ -2,6 +2,7 @@
 """ State Module for HBNB project """
 from models.base_model import BaseModel, Base
 import os
+from models.city import City
 
 db = os.getenv("HBNB_TYPE_STORAGE")
 
@@ -24,6 +25,7 @@ class State(*(BaseModel, Base) if is_db else (BaseModel,)):
 
         @property
         def cities(self):
+            from models import storage
             """
             Implements the correct getting requirement for both
             FIleStorage
@@ -32,5 +34,5 @@ class State(*(BaseModel, Base) if is_db else (BaseModel,)):
             objects = storage.all(City).values()
             for obj in objects:
                 if obj.id == self.id:
-                    cities.append(id)
+                    city_list.append(id)
             return city_list
