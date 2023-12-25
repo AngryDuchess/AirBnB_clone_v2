@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+        {% if state_name %}
+        <H1>{{state_name}}</H1>
+        {% else %}
+        <H1>Not found!</H1>
+        {% endif %}
+        {% if states %}
+            {% if cities %}
+            <H3>Cities: </H3>
+                <UL>
+                    {% for city in cities|sort(attribute='name') %}
+                    <LI>{{city.id}}: <B>{{city.name}}</B></LI>
+                    {% endfor %}
+                </UL>
+                {% endif %}
+             {% endif %}
+    </BODY>
+</HTML>
