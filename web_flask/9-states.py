@@ -28,7 +28,7 @@ def states_id(id):
         list_states = storage.all(State).values()
         state = list(filter(lambda i: id == i.id, list_states))[0]
         cities = state.cities
-        state_name = "State:" + state.name
+        state_name = "State: " + state.name
         return render_template('9-states.html', states=list_states,
                                cities=cities, state_name=state_name)
     except IndexError:
