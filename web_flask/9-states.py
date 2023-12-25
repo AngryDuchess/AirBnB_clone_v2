@@ -16,20 +16,21 @@ def close_db(exception):
 
 @app.route('/states', strict_slashes=False)
 def states():
-    """renders an html odd or even template"""
+    """renders template"""
     list_states = storage.all(State).values()
     return render_template('7-states_list.html', states=list_states)
 
 
 @app.route('/states/<id>', strict_slashes=False)
 def states_id(id):
-    """renders an html odd or even template"""
+    """renders template"""
     try:
         list_states = storage.all(State).values()
         state = list(filter(lambda i: id == i.id, list_states))[0]
         cities = state.cities
         state_name = "State:" + state.name
-        return render_template('9-states.html', states=list_states, cities=cities, state_name=state_name)
+        return render_template('9-states.html', states=list_states,
+                               cities=cities, state_name=state_name)
     except IndexError:
         return render_template('9-states.html', states=None, cities=None, state_name=None)
 
